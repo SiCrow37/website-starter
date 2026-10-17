@@ -1,8 +1,10 @@
 import { site } from "@/config/site";
 
+export const metadata = { title: "Contact" };
+
 export default function ContactPage() {
     return (
-        <main>
+        <main id="main-content" tabIndex={-1}>
             <section className="page-intro">
                 <p className="eyebrow">Contact</p>
                 <h1>Tell us what you have in mind.</h1>

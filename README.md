@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Website Starter
 
-## Getting Started
+Reusable Next.js App Router baseline using JavaScript and ordinary CSS.
 
-First, run the development server:
+## Run locally
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Before shipping, run `npm run lint` and `npm run build`.
+`npm start` serves the production build.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Customize a client copy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/config/site.js`: company name, description, public contact email.
+- `src/config/content.js`: home headline, services, project cards.
+- `src/config/navigation.js`: navigation labels and paths (create corresponding pages too).
+- `src/app/about/page.js`: company story and process.
+- `src/app/contact/page.js`: inquiry guidance.
+- `src/app/globals.css`: colors, spacing, typography, responsive layout.
+- Replace the placeholder photos and starter icons before launch.
 
-## Learn More
+Shared Header, Footer, service/project grids, and CallToAction are components.
+Only Navigation needs a client boundary, to track the active URL.
+The rest of the pages remain Server Components. No database is required.
 
-To learn more about Next.js, take a look at the following resources:
+Contact currently opens an email app. It does not submit a form or store inquiries.
+Never place passwords or API keys in the public site configuration.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Create the metal-shop project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Keep this repository as the generic starter. Use a GitHub template repository to
+create a new, separate client repository, then clone it and run npm ci.
+Copies do not receive future starter updates automatically.
+Before launch, replace all placeholders, verify company claims, add approved photos,
+set the real contact email, and implement/test the agreed inquiry workflow.
+Add production-domain metadata, sitemap and robots settings once the domain is known.
 
-## Deploy on Vercel
+## Dependency note
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Preserves the supplied Next/React versions and lockfile. The previously reported
+braces issue is in lint tooling; do not use npm audit fix --force to downgrade
+eslint-config-next. Recheck npm audit and npm audit --omit=dev before release.

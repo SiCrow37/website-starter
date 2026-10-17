@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { site } from "@/config/site";
 
+export const metadata = { title: "About" };
+
 export default function AboutPage() {
     return (
-        <main>
+        <main id="main-content" tabIndex={-1}>
             <section className="page-intro">
                 <p className="eyebrow">About us</p>
                 <h1>Meet {site.name}.</h1>

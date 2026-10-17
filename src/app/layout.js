@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-    title: site.name,
+    title: { default: site.name, template: `%s | ${site.name}` },
     description: site.description,
 };
 
@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
         {children}
         <Footer />
