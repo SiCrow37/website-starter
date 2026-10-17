@@ -1,6 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { site } from "@/config/site";
 import "./globals.css";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,27 +17,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-    title: "Website Starter",
-    description: "A reusable foundation for client websites.",
+    title: site.name,
+    description: site.description,
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <header>
-          <Link href="/">Website Starter</Link>
-
-          <nav aria-label="Main navigation">
-              <Link href="/">Home</Link>
-              <Link href="/about">About</Link>
-              <Link href="/services">Services</Link>
-              <Link href="/work">Our Work</Link>
-              <Link href="/contact">Contact</Link>
-          </nav>
-        </header>
+        <Header />
         {children}
-        <footer>All rights reserved</footer>
+        <Footer />
       </body>
     </html>
   );
